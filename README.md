@@ -29,8 +29,8 @@ saved as:
 
 **Examples:**
 
-Use existing cached detection results: python main.py --idea 1 --win 5 --k 1 --cached
-Force re-inference and overwrite cache: python main.py --idea 1 --win 5 --k 1
+Use existing cached detection results: `python main.py --idea 1 --win 5 --k 1 --cached`
+Force re-inference and overwrite cache: `python main.py --idea 1 --win 5 --k 1`
 
 
 ---
