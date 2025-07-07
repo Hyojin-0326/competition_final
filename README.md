@@ -6,6 +6,32 @@
 
 This project performs multi-view product recognition using YOLO and evaluates results under various parameter settings.
 first, cd to '/home/aistore51/git' directory.
+for 
+
+### 0. (Opional) Run Custom Postprocessing
+```
+python main.py --idea 1 --win 5 --k 1 --cached
+python main.py --idea 1 --win 5 --k 1
+```
+
+- Applies a selected postprocessing strategy (`--idea`) followed by temporal smoothing (`--win`) and optional hysteresis filtering (`--k`).
+- Uses cached YOLO results if available. Otherwise, re-runs inference.
+- Outputs per-event class count results in the format:
+saved as:  
+`/home/aistore51/git/output/event_XXXXX.txt`
+
+**Flags:**
+
+- `--idea`: Postprocessing strategy (1 to 5)
+- `--win`: Smoothing window size (int 3, 5, 7)
+- `--k`: Hysteresis threshold `K` (0, 1, 2)
+- `--cached`: Optional flag to use existing cache only (skip re-inference)
+
+**Examples:**
+
+Use existing cached detection results: python main.py --idea 1 --win 5 --k 1 --cached
+Force re-inference and overwrite cache: python main.py --idea 1 --win 5 --k 1
+
 
 ---
 
@@ -54,7 +80,10 @@ python evaluating.py
 ├── cache_raw.py          # Caches YOLO inference results
 ├── main_gridsearch.py    # Parameter sweep and result generation
 ├── evaluating.py         # MAE evaluation against ground truth
-├── output/               # Folder for cached raw results
+├── outputs/              # gridsearched results
+├── results/              # Folder for cached raw results
+├── main.py               # Custom postprocessing & smoothing pipeline
+├── custom_output/        # Custom postprocessed results
 └── eval_results.csv      # Final evaluation summary
 ```
 
