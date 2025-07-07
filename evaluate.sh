@@ -72,7 +72,7 @@ for ev_file in event_files:
         record[f"{p}_diff"] = diff_str
         record[f"{p}_inv"] = count
         total_amount += count * prices.get(p, 0)
-    record['total_amount'] = total_amount
+    record['total_amount'] = round(total_amount, 2)
     records.append(record)
     prev_counts = curr_counts.copy()
 
