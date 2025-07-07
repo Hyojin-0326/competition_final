@@ -5,6 +5,7 @@
 ## 🛠️ How to Run Our Model
 
 This project performs multi-view product recognition using YOLO and evaluates results under various parameter settings.
+first, cd to '/home/aistore51/git' directory.
 
 ---
 
